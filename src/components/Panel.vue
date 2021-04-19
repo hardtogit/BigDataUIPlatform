@@ -1,5 +1,7 @@
 <template>
-  <div class="panel-box"></div>
+  <div class="panel-box">
+     HelloWorld
+  </div>
 </template>
 
 <script>
@@ -10,5 +12,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.panel-box {
+   font-size: 16px;
+   font-weight: 700;
+}
 </style>
+ 
