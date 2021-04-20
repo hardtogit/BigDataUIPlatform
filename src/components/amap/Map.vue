@@ -6,7 +6,7 @@ import AMapLoader from '@amap/amap-jsapi-loader';
 export default {
   setup(context) {
       AMapLoader.load({
-        "key": "7223df6af333e10343f2aeec7e5f33db",                                          // 申请好的Web端开发者Key，首次调用 load 时必填
+        "key": "4ecbc25ada526ad0aefbd446c11bb1b9",                                          // 申请好的Web端开发者Key，首次调用 load 时必填
         "version": "1.4.15",                                // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
         "plugins": [],                                      // 需要使用的的插件列表，如比例尺'AMap.Scale'等
         "AMapUI": {                                         // 是否加载 AMapUI，缺省不加载
@@ -18,8 +18,9 @@ export default {
         },
     }).then((AMap)=>{
         const map = new AMap.Map('map-view', {
-            zoom:15,                                        //级别
-            mapStyle: "amap://styles/darkblue"
+            zoom:15,  
+            features: ['bg', 'road', 'building'],                                      //级别
+            mapStyle: 'amap://styles/34c0b9d38e16a0856e5494c24bce24ae'
         });
         console.log(context.emit, map)
     }).catch(e => {

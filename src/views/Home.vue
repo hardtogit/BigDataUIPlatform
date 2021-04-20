@@ -19,10 +19,11 @@ export default {
     // Panel,
     Page,
     Header,
+    AMap
   },
   mounted() {
     console.log(rem.ActualPixels(100));
-    AMap
+    
   },
 };
 </script>
