@@ -3,7 +3,8 @@
     "module": "esnext",
     "target": "esnext",
     "baseUrl": "./",
-    "allowSyntheticDefaultImports": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@/*": ["./src/*"],
       "@root/*": ["./*"],

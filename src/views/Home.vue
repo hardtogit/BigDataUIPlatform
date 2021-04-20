@@ -1,6 +1,7 @@
 <template>
   <Page>
     <Header></Header>
+    <AMap></AMap>
   </Page>
 </template>
 
@@ -11,6 +12,7 @@ import Page from "@components/Page.vue";
 import Header from "@components/Header.vue";
 import { rem } from "@/utils/index";
 
+import AMap from '@components/amap/Map.vue'
 export default {
   name: "Home",
   components: {
@@ -20,6 +22,7 @@ export default {
   },
   mounted() {
     console.log(rem.ActualPixels(100));
+    AMap
   },
 };
 </script>
