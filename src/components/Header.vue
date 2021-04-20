@@ -10,7 +10,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
-    background: url('../assets/bj.png') no-repeat;
+    background: url('../assets/img/bj.png') no-repeat;
     background-size: 100%;
     background-position: top;
     height: 97px;

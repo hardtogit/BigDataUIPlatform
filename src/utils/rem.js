@@ -17,5 +17,9 @@ const getCoefficient = () => {
 export const coefficient = getCoefficient();
 
 export const ActualPixels = (virtualPixels) => {
-  return virtualPixels * coefficient;
+  if (virtualPixels || virtualPixels === 0) {
+    return virtualPixels * coefficient;
+  } else {
+    return null;
+  }
 };
