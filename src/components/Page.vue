@@ -13,6 +13,8 @@ export default {
 <style lang="scss">
 .page {
     height:100%;
+    display: flex;
+    flex-direction: column;
     background-color: #0e1829;
 }
 </style>
