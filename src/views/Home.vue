@@ -3,13 +3,13 @@
     <Header></Header>
     <AMap></AMap>
     <Panel :position="{ top: 112, left: 22 }" title="IC卡分类">
-      <v-chart class="chart" :option="option" :style="`height:${height}px`" />
+      <v-chart class="chart" :option="optionOne" />
     </Panel>
     <Panel :position="{ top: 430, left: 22 }" title="客流变化">
-      <v-chart class="chart" :option="option" :style="`height:${height}px`" />
+      <v-chart class="chart" :option="optionTwo" />
     </Panel>
     <Panel :position="{ bottom: 28, left: 22 }" title="下属公司情况">
-      <v-chart class="chart" :option="option" :style="`height:${height}px`" />
+      <v-chart class="chart" :option="option" />
     </Panel>
   </Page>
 </template>
@@ -26,7 +26,8 @@ export default {
   name: "Home",
   data() {
     return {
-      option: {},
+      optionOne: {},
+      optionTwo: {},
       height: rem.ActualPixels(260),
     };
   },
@@ -38,7 +39,7 @@ export default {
   },
   mounted() {
     console.log(rem.ActualPixels(100));
-    this.option = {
+    this.optionOne = {
       tooltip: {
         trigger: "item",
         formatter: "{b} : {d}% ({c})",
@@ -91,6 +92,42 @@ export default {
         },
       ],
     };
+    this.optionTwo = {
+      legend: {},
+      tooltip: {
+        trigger: "axis",
+        showContent: false,
+      },
+      dataset: {
+        source: [
+          ["product", "2012", "2013", "2014", "2015", "2016", "2017"],
+          ["Milk Tea", 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
+          ["Matcha Latte", 51.1, 51.4, 55.1, 53.3, 73.8, 68.7]
+        ],
+      },
+      xAxis: { type: "category" },
+      yAxis: { gridIndex: 0 },
+      grid: { top: "55%" },
+      series: [
+        {
+          type: "line",
+          smooth: true,
+          seriesLayoutBy: "row",
+          emphasis: { focus: "series" },
+        },
+        {
+          type: "line",
+          smooth: true,
+          seriesLayoutBy: "row",
+          emphasis: { focus: "series" },
+        },
+      ],
+    };
   },
 };
 </script>
+<style lang="scss" scoped>
+.chart {
+  height: 260px;
+}
+</style>

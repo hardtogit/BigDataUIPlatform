@@ -4,28 +4,16 @@ import router from "./router";
 import store from "./store";
 import ECharts from "vue-echarts";
 import { use } from "echarts/core";
-// import Amap from 'vue-amap'
-// import ECharts modules manually to reduce bundle size
 import { CanvasRenderer } from "echarts/renderers";
-import { BarChart ,PieChart} from "echarts/charts";
-import {
-  GridComponent,
-  TooltipComponent,
-  TitleComponent,
-  LegendComponent,
-} from "echarts/components";
-
-use([
-  CanvasRenderer,
-  BarChart,
-  GridComponent,
-  TooltipComponent,
-  CanvasRenderer,
-  PieChart,
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-]);
+import * as Chart from "echarts/charts";
+import * as Components from "echarts/components";
+const TotalChart = Object.keys(Chart).reduce((total, current) => {
+  return [...total, Chart[current]];
+}, []);
+const TotalComponents = Object.keys(Components).reduce((total, current) => {
+  return [...total, Components[current]];
+}, []);
+use([...TotalChart, ...TotalComponents, CanvasRenderer]);
 createApp(App)
   .use(store)
   .use(router)
