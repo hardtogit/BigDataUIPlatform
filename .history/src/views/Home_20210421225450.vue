@@ -36,7 +36,9 @@ export default {
   },
   name: "Home",
   data() {
-    return {};
+    return {
+      height: rem.ActualPixels(260),
+    };
   },
   components: {
     Panel,

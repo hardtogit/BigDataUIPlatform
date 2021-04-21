@@ -6,7 +6,7 @@
       <v-chart class="chart" :option="cardConfig" />
     </Panel>
     <Panel :position="{ top: 430, left: 22 }" title="客流变化">
-      <v-chart class="chart" :option="customConfig" />
+      <v-chart class="chart" :option="optionTwo" />
     </Panel>
     <Panel :position="{ bottom: 28, left: 22 }" title="下属公司情况">
       <v-chart class="chart" :option="option" />
@@ -36,7 +36,11 @@ export default {
   },
   name: "Home",
   data() {
-    return {};
+    return {
+      optionOne: {},
+      optionTwo: {},
+      height: rem.ActualPixels(260),
+    };
   },
   components: {
     Panel,

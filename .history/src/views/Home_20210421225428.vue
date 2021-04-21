@@ -36,7 +36,11 @@ export default {
   },
   name: "Home",
   data() {
-    return {};
+    return {
+      optionOne: {},
+      optionTwo: {},
+      height: rem.ActualPixels(260),
+    };
   },
   components: {
     Panel,
