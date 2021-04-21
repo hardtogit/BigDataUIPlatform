@@ -1,7 +1,7 @@
 <template>
   <div
     class="panel-box"
-    :style="`width:${realityWidth}px;height:${realityHeight}px;left:${realityPosition.left}px;right:${realityPosition.right}px;top:${realityPosition.top}px;buttom:${realityPosition.buttom}px`"
+    :style="`width:${realityWidth}px;height:${realityHeight}px;left:${realityPosition.left}px;right:${realityPosition.right}px;top:${realityPosition.top}px;bottom:${realityPosition.bottom}px`"
   >
     <div class="panel-header">{{ title }}</div>
     <div class="panel-body">
@@ -28,12 +28,12 @@ export default {
     },
     position: {
       type: Object,
-      default: {
+      default: () => ({
         left: 0,
         top: 0,
-        buttom: null,
+        bottom: null,
         right: null,
-      },
+      }),
     },
   },
   computed: {
@@ -47,7 +47,7 @@ export default {
       return {
         left: rem.ActualPixels(this.position.left),
         right: rem.ActualPixels(this.position.right),
-        buttom: rem.ActualPixels(this.position.buttom),
+        bottom: rem.ActualPixels(this.position.bottom),
         top: rem.ActualPixels(this.position.top),
       };
     },

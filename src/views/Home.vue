@@ -5,6 +5,12 @@
     <Panel :position="{ top: 112, left: 22 }" title="IC卡分类">
       <v-chart class="chart" :option="option" :style="`height:${height}px`" />
     </Panel>
+    <Panel :position="{ top: 430, left: 22 }" title="客流变化">
+      <v-chart class="chart" :option="option" :style="`height:${height}px`" />
+    </Panel>
+    <Panel :position="{ bottom: 28, left: 22 }" title="下属公司情况">
+      <v-chart class="chart" :option="option" :style="`height:${height}px`" />
+    </Panel>
   </Page>
 </template>
 
