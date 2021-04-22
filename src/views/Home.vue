@@ -1,7 +1,7 @@
 <template>
   <Page>
     <Header></Header>
-    <AMap></AMap>
+    <AMap @ready="handleReady"></AMap>
     <Panel :position="{ top: 112, left: 22 }" title="IC卡分类">
       <v-chart class="chart" :option="cardConfig" />
     </Panel>
@@ -66,6 +66,11 @@ export default {
   name: "Home",
   data() {
     return {};
+  },
+  methods: {
+    handleReady(map){
+      console.log('0000', map)
+    }
   },
   components: {
     Panel,
