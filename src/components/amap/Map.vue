@@ -4,7 +4,7 @@
 <script>
 import AMapLoader from '@amap/amap-jsapi-loader';
 export default {
-  setup(context) {
+  setup(props, context) {
       AMapLoader.load({
         "key": "4ecbc25ada526ad0aefbd446c11bb1b9",                                          // 申请好的Web端开发者Key，首次调用 load 时必填
         "version": "1.4.15",                                // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
@@ -22,7 +22,8 @@ export default {
             features: ['bg', 'road', 'building'],                                      //级别
             mapStyle: 'amap://styles/34c0b9d38e16a0856e5494c24bce24ae'
         });
-        console.log(context.emit, map)
+        // console.log(context, map) 
+        context.emit('ready', map)
     }).catch(e => {
         console.log(e);
     })
