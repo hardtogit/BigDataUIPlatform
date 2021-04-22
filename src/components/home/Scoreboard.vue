@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 .scoreboard {
   position: absolute;
-  padding-top: 9px;
+  padding-bottom: 15px;
   z-index: 2;
   width: 920px;
   height: 72px;
