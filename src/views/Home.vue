@@ -15,11 +15,7 @@
     <HotStation></HotStation>
     <Panel :position="{ right: 22, top: 112 }" title="统计">
       <PercentBar label="工作车率" percent="83.3" color="#fff"></PercentBar>
-      <PercentBar
-        label="班次完成率"
-        percent="83.3"
-        color="#66FAD5"
-      ></PercentBar>
+      <PercentBar label="班次完成率" percent="60" color="#66FAD5"></PercentBar>
       <PercentBar
         label="早高峰出车率"
         percent="83.3"
@@ -27,12 +23,12 @@
       ></PercentBar>
       <PercentBar
         label="高峰班次完成率(本月)"
-        percent="83.3"
+        percent="76"
         color="#fff"
       ></PercentBar>
       <PercentBar
         label="优先道正点率(本月)"
-        percent="83.3"
+        percent="92"
         color="#F05B49
 "
       ></PercentBar>
@@ -68,9 +64,9 @@ export default {
     return {};
   },
   methods: {
-    handleReady(map){
-      console.log('0000', map)
-    }
+    handleReady(map) {
+      console.log("0000", map);
+    },
   },
   components: {
     Panel,

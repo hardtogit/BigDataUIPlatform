@@ -7,7 +7,7 @@
       <div class="default">
         <div class="item" v-for="(value, index) in num" :key="index"></div>
       </div>
-      <div class="active">
+      <div class="active" :style="`width:${comPercent}%`">
         <div
           class="item"
           :style="`background-color:${color}`"
@@ -16,16 +16,11 @@
         ></div>
       </div>
     </div>
-    <div class="percent" :style="`color:${color}`">{{ percent }}%</div>
+    <div class="percent" :style="`color:${color}`">{{ comPercent }}%</div>
   </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      num: new Array(27).fill(""),
-    };
-  },
   props: {
     label: {
       type: String,
@@ -38,6 +33,16 @@ export default {
     color: {
       type: String,
       default: "#66FAD5",
+    },
+  },
+  data() {
+    return {
+      num: new Array(27).fill(""),
+    };
+  },
+  computed: {
+    comPercent: function () {
+      return parseFloat(this.percent).toFixed(1);
     },
   },
 };
