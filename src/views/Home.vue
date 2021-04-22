@@ -9,7 +9,9 @@
       <v-chart class="chart" :option="customConfig" />
     </Panel>
     <Panel :position="{ bottom: 28, left: 22 }" title="下属公司情况">
-      <v-chart class="chart" :option="option" />
+      <div class="box">
+        <Table :columns="columns" :data="data" />
+      </div>
     </Panel>
     <HotLine></HotLine>
     <HotStation></HotStation>
@@ -44,19 +46,24 @@ import Panel from "@components/Panel.vue";
 import HotLine from "@/components/home/HotLine.vue";
 import HotStation from "@/components/home/HotStation.vue";
 import PercentBar from "@/components/home/PercentBar.vue";
+import Table from "@components/scroll-table/Table.vue";
 
 import { rem } from "@/utils/index";
 import { useCardConfig } from "@hooks/cardConfg";
 import { useCustomConfig } from "@hooks/csutomConfig";
+import { useCompany } from "@hooks/company";
 
 import AMap from "@components/amap/Map.vue";
 export default {
   setup() {
     const cardConfig = useCardConfig(rem);
     const customConfig = useCustomConfig(rem);
+    const companies = useCompany(rem);
     return {
       cardConfig,
       customConfig,
+      columns: companies.columns,
+      data: companies.companies,
     };
   },
   name: "Home",
@@ -76,11 +83,16 @@ export default {
     HotLine,
     HotStation,
     PercentBar,
+    Table,
   },
 };
 </script>
 <style lang="scss" scoped>
 .chart {
   height: 260px;
+}
+.box{
+  padding: 11px 7px 0 7px;
+  height: 100%;
 }
 </style>

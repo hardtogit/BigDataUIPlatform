@@ -66,6 +66,8 @@ export default {
   background-image: url("../assets/img/panel_bg.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
   .panel-header {
     height: 32px;
     line-height: 32px;
@@ -76,6 +78,10 @@ export default {
     background-image: url("../assets/img/panel_header_bg.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
+  }
+  .panel-body{
+    flex: 1;
+    overflow: hidden;
   }
 }
 </style>
