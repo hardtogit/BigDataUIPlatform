@@ -111,12 +111,12 @@ export default defineComponent({
         //单条数据宽度有值hoverStop关闭
         singleWidth: 0,
         //单步停止等待时间
-        waitTime: 3000,
+        waitTime: 1000,
         switchOffset: 30,
         autoPlay: true,
         navigation: false,
         switchSingleStep: 134,
-        switchDelay: 400,
+        switchDelay: 500,
         switchDisabledClass: "disabled",
         // singleWidth/singleHeight 是否开启rem度量
         isSingleRemUnit: false

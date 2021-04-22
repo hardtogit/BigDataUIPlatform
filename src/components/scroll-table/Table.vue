@@ -9,14 +9,14 @@
       >
     </div>
     <div class="table-body">
-      <vue-seamless-scroll :data="data" class="table-box">
+      <vue-seamless-scroll :data="data" class="table-box" :classOption="classOption">
         <ul class="item">
           <li v-for="(item, index) in data" :key="index">
             <span
               v-for="it in columns"
               :key="it.field"
               :style="{ width: it.width, 'text-align': it.align }"
-              :class="{'double': index % 2===0}"
+              :class="{ double: index % 2 === 0 }"
               >{{ item[it.field] }}</span
             >
           </li>
@@ -27,6 +27,7 @@
 </template>
 <script>
 import vueSeamlessScroll from "./Scroll.vue";
+import { ActualPixels } from '@/utils/rem'
 
 export default {
   props: {
@@ -39,6 +40,14 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      classOption: {
+        singleHeight: Math.ceil(ActualPixels(38)) * 2,
+        waitTime: 3000
+      },
+    };
+  },
   components: {
     vueSeamlessScroll,
   },
@@ -49,7 +58,7 @@ export default {
   display: flex;
   flex-direction: column;
   font-size: 0;
-  height: 100%
+  height: 100%;
 }
 .table-header {
   height: 24px;
@@ -86,15 +95,14 @@ export default {
       font-size: 13px;
       display: flex;
       align-items: center;
-          margin-bottom: 10px;
+      margin-bottom: 10px;
       span {
         display: inline-block;
         color: #64d9f1;
-        &.double{
-          color: #FFD563
+        &.double {
+          color: #ffd563;
         }
       }
-
     }
   }
 }
