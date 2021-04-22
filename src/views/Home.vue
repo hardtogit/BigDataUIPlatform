@@ -1,6 +1,12 @@
 <template>
   <Page>
     <Header></Header>
+    <Scoreboard
+      prefix="实时刷卡人次"
+      suffix="次"
+      countNum="5428447"
+    ></Scoreboard>
+    <SubScoreboard></SubScoreboard>
     <AMap @ready="handleReady"></AMap>
     <Panel :position="{ top: 112, left: 22 }" title="IC卡分类">
       <v-chart class="chart" :option="cardConfig" />
@@ -47,6 +53,8 @@ import HotLine from "@/components/home/HotLine.vue";
 import HotStation from "@/components/home/HotStation.vue";
 import PercentBar from "@/components/home/PercentBar.vue";
 import Table from "@components/scroll-table/Table.vue";
+import Scoreboard from "@/components/home/Scoreboard.vue";
+import SubScoreboard from "@/components/home/SubScoreboard.vue";
 
 import { rem } from "@/utils/index";
 import { useCardConfig } from "@hooks/cardConfg";
@@ -84,6 +92,8 @@ export default {
     HotStation,
     PercentBar,
     Table,
+    Scoreboard,
+    SubScoreboard,
   },
 };
 </script>
