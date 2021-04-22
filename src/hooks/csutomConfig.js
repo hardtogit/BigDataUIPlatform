@@ -4,38 +4,84 @@ import { ref } from "vue";
  * 客流
  */
 export function useCustomConfig(rem) {
-    console.log(rem)
+  console.log(rem);
+
+  const colors = ["#F05B49", "#16CAFF"];
   const customRef = ref({});
   customRef.value = {
-    legend: {},
+    color: colors,
     tooltip: {
       trigger: "axis",
-      showContent: false,
+      showContent: false
     },
-    dataset: {
-      source: [
-        ["product", "2012", "2013", "2014", "2015", "2016", "2017"],
-        ["Milk Tea", 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
-        ["Matcha Latte", 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
-      ],
+    legend: {
+      data: ["班次", "人次"],
+      top: rem.ActualPixels(10),
+      left: rem.ActualPixels(10)
     },
-    xAxis: { type: "category" },
-    yAxis: { gridIndex: 0 },
-    grid: { top: "55%" },
+    xAxis: {
+      type: "category",
+      nameLocation: "start",
+      axisLine: {
+        show: false,
+        onZero: false,
+        lineStyle: {
+          color: "#9EBFCB"
+        }
+      },
+      data: ["0", "3", "6", "9", "12", "15", "18", "21"]
+    },
+    yAxis: {
+      gridIndex: 0,
+      axisLine: {
+        show: false,
+        onZero: false,
+        lineStyle: {
+          color: "#9EBFCB"
+        }
+      },
+      splitLine: {
+        show: true,
+        lineStyle: {
+          color: ["#9EBFCB"]
+        }
+      }
+    },
+    grid: {
+      show: true,
+      borderColor: "#9EBFCB",
+      left: rem.ActualPixels(60),
+      top: rem.ActualPixels(60),
+      bottom: rem.ActualPixels(50),
+      right: rem.ActualPixels(20)
+    },
     series: [
       {
         type: "line",
+        name: "班次",
+        data: [50, 20, 100, 120, 140, 160, 200, 110],
         smooth: true,
-        seriesLayoutBy: "row",
-        emphasis: { focus: "series" },
+        symbol: "emptyCircle",
+        lineStyle: {
+          color: colors[0]
+        },
+        itemStyle: {
+          color: colors[0]
+        }
       },
       {
         type: "line",
+        name: "人次",
+        data: [70, 40, 130, 150, 170, 190, 250, 130],
         smooth: true,
-        seriesLayoutBy: "row",
-        emphasis: { focus: "series" },
-      },
-    ],
+        lineStyle: {
+          color: colors[1]
+        },
+        itemStyle: {
+          color: colors[1]
+        }
+      }
+    ]
   };
   return customRef;
 }
