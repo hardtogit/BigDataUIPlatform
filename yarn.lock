@@ -8484,12 +8484,7 @@ vue-amap@^0.5.10:
   dependencies:
     uppercamelcase "^1.1.0"
 
-vue-demi@^0.7.4:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.5.tgz#88dee7492fc99a0f911ff03fc02c658fa2a79af8"
-  integrity sha512-eFSQSvbQdY7C9ujOzvM6tn7XxwLjn0VQDXQsiYBLBwf28Na+2nTQR4BBBcomhmdP6mmHlBKAwarq6a0BPG87hQ==
-
-vue-demi@latest:
+vue-demi@^0.7.4, vue-demi@latest:
   version "0.7.5"
   resolved "https://registry.npm.taobao.org/vue-demi/download/vue-demi-0.7.5.tgz#88dee7492fc99a0f911ff03fc02c658fa2a79af8"
   integrity sha1-iN7nSS/Jmg+RH/A/wCxlj6Knmvg=

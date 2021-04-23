@@ -62,31 +62,22 @@ import SubScoreboard from "@/components/home/SubScoreboard.vue";
 import { rem } from "@/utils/index";
 import { useCardConfig } from "@hooks/cardConfg";
 import { useCustomConfig } from "@hooks/csutomConfig";
-<<<<<<< HEAD
 import { useMileConfig } from "@hooks/mileConfig";
-=======
 import { useCompany } from "@hooks/company";
->>>>>>> 76f2a152377117ac0db61746981d0301962857f1
 
 import AMap from "@components/amap/Map.vue";
 export default {
   setup() {
     const cardConfig = useCardConfig(rem);
     const customConfig = useCustomConfig(rem);
-<<<<<<< HEAD
     const mileConfig = useMileConfig(rem);
-    return {
-      cardConfig,
-      customConfig,
-      mileConfig
-=======
     const companies = useCompany(rem);
     return {
       cardConfig,
       customConfig,
+      mileConfig,
       columns: companies.columns,
       data: companies.companies,
->>>>>>> 76f2a152377117ac0db61746981d0301962857f1
     };
   },
   name: "Home",
