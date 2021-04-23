@@ -33,6 +33,9 @@
 "
       ></PercentBar>
     </Panel>
+    <Panel :position="{ right: 22, top: 430 }" title="里程与客运量趋势分析">
+      <v-chart class="chart" :option="mileConfig" />
+    </Panel>
   </Page>
 </template>
 
@@ -48,15 +51,18 @@ import PercentBar from "@/components/home/PercentBar.vue";
 import { rem } from "@/utils/index";
 import { useCardConfig } from "@hooks/cardConfg";
 import { useCustomConfig } from "@hooks/csutomConfig";
+import { useMileConfig } from "@hooks/mileConfig";
 
 import AMap from "@components/amap/Map.vue";
 export default {
   setup() {
     const cardConfig = useCardConfig(rem);
     const customConfig = useCustomConfig(rem);
+    const mileConfig = useMileConfig(rem);
     return {
       cardConfig,
       customConfig,
+      mileConfig
     };
   },
   name: "Home",
