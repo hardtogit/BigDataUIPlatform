@@ -1,6 +1,12 @@
 <template>
   <Page>
     <Header></Header>
+    <Scoreboard
+      prefix="实时刷卡人次"
+      suffix="次"
+      countNum="5428447"
+    ></Scoreboard>
+    <SubScoreboard></SubScoreboard>
     <AMap @ready="handleReady"></AMap>
     <Panel :position="{ top: 112, left: 22 }" title="IC卡分类">
       <v-chart class="chart" :option="cardConfig" />
@@ -9,7 +15,9 @@
       <v-chart class="chart" :option="customConfig" />
     </Panel>
     <Panel :position="{ bottom: 28, left: 22 }" title="下属公司情况">
-      <v-chart class="chart" :option="option" />
+      <div class="box">
+        <Table :columns="columns" :data="data" />
+      </div>
     </Panel>
     <HotLine></HotLine>
     <HotStation></HotStation>
@@ -47,22 +55,38 @@ import Panel from "@components/Panel.vue";
 import HotLine from "@/components/home/HotLine.vue";
 import HotStation from "@/components/home/HotStation.vue";
 import PercentBar from "@/components/home/PercentBar.vue";
+import Table from "@components/scroll-table/Table.vue";
+import Scoreboard from "@/components/home/Scoreboard.vue";
+import SubScoreboard from "@/components/home/SubScoreboard.vue";
 
 import { rem } from "@/utils/index";
 import { useCardConfig } from "@hooks/cardConfg";
 import { useCustomConfig } from "@hooks/csutomConfig";
+<<<<<<< HEAD
 import { useMileConfig } from "@hooks/mileConfig";
+=======
+import { useCompany } from "@hooks/company";
+>>>>>>> 76f2a152377117ac0db61746981d0301962857f1
 
 import AMap from "@components/amap/Map.vue";
 export default {
   setup() {
     const cardConfig = useCardConfig(rem);
     const customConfig = useCustomConfig(rem);
+<<<<<<< HEAD
     const mileConfig = useMileConfig(rem);
     return {
       cardConfig,
       customConfig,
       mileConfig
+=======
+    const companies = useCompany(rem);
+    return {
+      cardConfig,
+      customConfig,
+      columns: companies.columns,
+      data: companies.companies,
+>>>>>>> 76f2a152377117ac0db61746981d0301962857f1
     };
   },
   name: "Home",
@@ -82,11 +106,18 @@ export default {
     HotLine,
     HotStation,
     PercentBar,
+    Table,
+    Scoreboard,
+    SubScoreboard,
   },
 };
 </script>
 <style lang="scss" scoped>
 .chart {
   height: 260px;
+}
+.box{
+  padding: 11px 7px 0 7px;
+  height: 100%;
 }
 </style>
