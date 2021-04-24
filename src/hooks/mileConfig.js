@@ -8,7 +8,6 @@ export function useMileConfig(rem) {
   const colors = ["#F1C462", "#66FAD5"];
   const customRef = ref({});
   customRef.value = {
-    // color: colors,
     tooltip: {
       trigger: "axis",
       backgroundColor: "#090C12",
@@ -84,12 +83,16 @@ export function useMileConfig(rem) {
         type: "line",
         name: "里程",
         data: [50, 20, 100, 120, 140, 160, 200, 110, 120, 340, 100],
-        smooth: false,
+        smooth: true,
+        showSymbol: false,
         symbol: "emptyCircle",
         lineStyle: {
           color: colors[0]
         },
-
+        // emphasis: {
+        //   focus: 'series',
+        //   blurScope: 'coordinateSystem'
+        // },
         // areaStyle: {
         //   opacity: 0.8,
         //   color: new ECharts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -131,7 +134,8 @@ export function useMileConfig(rem) {
         type: "line",
         name: "客运量",
         data: [70, 40, 130, 150, 170, 190, 250, 130, 150, 400, 140],
-        smooth: false,
+        smooth: true,
+        showSymbol: false,
         lineStyle: {
           color: colors[1]
         },
