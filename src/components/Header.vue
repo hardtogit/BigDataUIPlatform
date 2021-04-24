@@ -1,6 +1,6 @@
 <template>
   <div class="header" @mouseenter="handleEnter" @mouseleave="handleLeave">
-    <h4>公交运营调度平台</h4>
+    <h4>{{ title }}</h4>
     <div class="date-time">2021 03 15 13:34:06</div>
     <Nav v-show="visible" />
   </div>
@@ -14,6 +14,16 @@ export default {
       visible: false,
     };
   },
+  computed: {
+    title() {
+      const {
+        options: { routes = [] },
+      } = this.$router;
+      const { fullPath } = this.$route;
+      const item = routes.find((t) => t.path === fullPath);
+      return item && item.meta.title;
+    },
+  },
   methods: {
     handleEnter() {
       this.visible = true;
@@ -24,6 +34,9 @@ export default {
   },
   components: {
     Nav,
+  },
+  mounted() {
+    console.log(this.$route, this.$router);
   },
 };
 </script>

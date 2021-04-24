@@ -1,17 +1,23 @@
 <template>
   <div class="nav animate__animated animate__fadeInDown">
     <div class="nav-group">
-      <div class="nav-item active">公交运营调度平台</div>
+      <div class="nav-item active" @click="handleClick('/')">公交运营调度平台</div>
       <div class="nav-item">公交安全管控平台</div>
     </div>
     <div class="nav-group">
-      <div class="nav-item">公交机务维护平台</div>
+      <div class="nav-item" @click="handleClick('/maintenance')">公交机务维保平台</div>
       <div class="nav-item">公交服务管理平台</div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+    methods: {
+        handleClick(path){
+            this.$router.replace(path)
+        }
+    }
+};
 </script>
 <style lang="scss" scoped>
 .nav {
