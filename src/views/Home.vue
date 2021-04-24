@@ -20,6 +20,7 @@
       </div>
     </Panel>
     <HotLine></HotLine>
+    <BusStatistics></BusStatistics>
     <HotStation></HotStation>
     <Panel :position="{ right: 22, top: 112 }" title="统计">
       <PercentBar label="工作车率" percent="83.3" color="#fff"></PercentBar>
@@ -68,6 +69,7 @@ import Page from "@components/Page.vue";
 import Header from "@components/Header.vue";
 import Panel from "@components/Panel.vue";
 import HotLine from "@/components/home/HotLine.vue";
+import BusStatistics from "@/components/home/BusStatistics.vue";
 import HotStation from "@/components/home/HotStation.vue";
 import PercentBar from "@/components/home/PercentBar.vue";
 import Table from "@components/scroll-table/Table.vue";
@@ -111,6 +113,7 @@ export default {
     Header,
     AMap,
     HotLine,
+    BusStatistics,
     HotStation,
     PercentBar,
     Table,
