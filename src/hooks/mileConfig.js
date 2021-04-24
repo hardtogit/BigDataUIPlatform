@@ -1,4 +1,5 @@
 import { ref } from "vue";
+import * as echarts from "echarts";
 // import ECharts from "vue-echarts";
 
 /**
@@ -8,6 +9,7 @@ export function useMileConfig(rem) {
   const colors = ["#F1C462", "#66FAD5"];
   const customRef = ref({});
   customRef.value = {
+    color: colors,
     tooltip: {
       trigger: "axis",
       backgroundColor: "#090C12",
@@ -26,7 +28,7 @@ export function useMileConfig(rem) {
       top: rem.ActualPixels(10),
       left: rem.ActualPixels(30),
       textStyle: {
-        color: "#9ebfcb"
+        color: "#9EBFCB"
       }
     },
     xAxis: {
@@ -82,85 +84,46 @@ export function useMileConfig(rem) {
       {
         type: "line",
         name: "里程",
-        data: [50, 20, 100, 120, 140, 160, 200, 110, 120, 340, 100],
-        smooth: true,
+        data: [100, 45, 140, 170, 180, 200, 240, 260, 160, 400, 140],
         showSymbol: false,
         symbol: "emptyCircle",
         lineStyle: {
           color: colors[0]
         },
-        // emphasis: {
-        //   focus: 'series',
-        //   blurScope: 'coordinateSystem'
-        // },
-        // areaStyle: {
-        //   opacity: 0.8,
-        //   color: new ECharts.graphic.LinearGradient(0, 0, 0, 1, [
-        //     {
-        //       offset: 0,
-        //       color: "rgba(128, 255, 165)"
-        //     },
-        //     {
-        //       offset: 1,
-        //       color: "rgba(1, 191, 236)"
-        //     }
-        //   ])
-        // },
         areaStyle: {
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              {
-                offset: 0,
-                color: colors[0] // 0% 处的颜色
-              },
-              {
-                offset: 1,
-                color: colors[0] // 100% 处的颜色
-              }
-            ],
-            global: false // 缺省为 false
-          }
-        },
-        itemStyle: {
-          color: colors[0]
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: "rgba(241, 196, 98)"
+            },
+            {
+              offset: 1,
+              color: "rgba(241, 196, 98, 0.2)"
+            }
+          ])
         }
       },
       {
         type: "line",
         name: "客运量",
-        data: [70, 40, 130, 150, 170, 190, 250, 130, 150, 400, 140],
-        smooth: true,
+        data: [40, 20, 100, 120, 140, 150, 200, 120, 120, 200, 100],
         showSymbol: false,
         lineStyle: {
           color: colors[1]
         },
         areaStyle: {
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              {
-                offset: 0,
-                color: "#002b50" // 0% 处的颜色
-              },
-              {
-                offset: 1,
-                color: colors[1] // 100% 处的颜色
-              }
-            ],
-            global: false // 缺省为 false
-          }
-        },
-        itemStyle: {
-          color: colors[1]
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: "rgba(102, 250, 213)"
+            },
+            {
+              offset: 1,
+              color: "rgba(102, 250, 213, 0.2)"
+            }
+          ])
         }
       }
     ]
