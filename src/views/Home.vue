@@ -44,6 +44,21 @@
     <Panel :position="{ right: 22, top: 430 }" title="里程与客运量趋势分析">
       <v-chart class="chart" :option="mileConfig" />
     </Panel>
+    <Panel :position="{ right: 22, bottom: 28 }" title="数据总览">
+      <div class="data-list">
+        <div class="data-header">
+          <div class="data-item">
+            <Select />
+          </div>
+          <div class="data-item">
+            <Select />
+          </div>
+        </div>
+        <div class="data-body">
+          <Table :columns="columns" :data="data" />
+        </div>
+      </div>
+    </Panel>
   </Page>
 </template>
 
@@ -58,6 +73,7 @@ import PercentBar from "@/components/home/PercentBar.vue";
 import Table from "@components/scroll-table/Table.vue";
 import Scoreboard from "@/components/home/Scoreboard.vue";
 import SubScoreboard from "@/components/home/SubScoreboard.vue";
+import Select from "@components/Select.vue";
 
 import { rem } from "@/utils/index";
 import { useCardConfig } from "@hooks/cardConfg";
@@ -100,6 +116,7 @@ export default {
     Table,
     Scoreboard,
     SubScoreboard,
+    Select,
   },
 };
 </script>
@@ -107,8 +124,22 @@ export default {
 .chart {
   height: 260px;
 }
-.box{
+.box {
   padding: 11px 7px 0 7px;
   height: 100%;
+}
+.data-list {
+  padding: 9px 8px 20px 8px;
+  .data-header {
+    display: flex;
+    justify-content: space-between;
+    .data-item {
+      width: 216px;
+    }
+  }
+  .data-body {
+    height: 177px;
+    padding-top: 12px;
+  }
 }
 </style>
