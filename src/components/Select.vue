@@ -1,5 +1,5 @@
 <template>
-  <Select :options="options">
+  <Select :options="options" v-model="val">
      <template #open-indicator="{ attributes }">
       <span v-bind="attributes" class="aciton"></span>
     </template>
@@ -12,7 +12,8 @@ import Select from "./Select/index";
 export default {
   data() {
     return {
-      options: ["全部选项", "近30个月", "近半年"],
+      options: ["本年度数据", "近30个月", "近半年"],
+      val: '本年度数据'
     };
   },
   components: {

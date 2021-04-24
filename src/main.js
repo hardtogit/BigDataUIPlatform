@@ -1,9 +1,9 @@
-import { createApp } from "vue";
+import  { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import ECharts from "vue-echarts";
-import { use } from "echarts/core";
+import * as Core from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import * as Chart from "echarts/charts";
 import * as Components from "echarts/components";
@@ -13,9 +13,11 @@ const TotalChart = Object.keys(Chart).reduce((total, current) => {
 const TotalComponents = Object.keys(Components).reduce((total, current) => {
   return [...total, Components[current]];
 }, []);
-use([...TotalChart, ...TotalComponents, CanvasRenderer]);
-createApp(App)
+Core.use([...TotalChart, ...TotalComponents, CanvasRenderer]);
+const app = createApp(App);
+app
   .use(store)
   .use(router)
   .component("v-chart", ECharts)
   .mount("#app");
+app.config.globalProperties.$echrts = Core;
