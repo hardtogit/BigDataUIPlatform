@@ -1,10 +1,31 @@
 <template>
-  <div class="header">
+  <div class="header" @mouseenter="handleEnter" @mouseleave="handleLeave">
     <h4>公交运营调度平台</h4>
+    <div class="date-time">2021 03 15 13:34:06</div>
+    <Nav v-show="visible" />
   </div>
 </template>
 <script>
-export default {};
+import Nav from "./Nav.vue";
+
+export default {
+  data() {
+    return {
+      visible: false,
+    };
+  },
+  methods: {
+    handleEnter() {
+      this.visible = true;
+    },
+    handleLeave() {
+      this.visible = false;
+    },
+  },
+  components: {
+    Nav,
+  },
+};
 </script>
 <style lang="scss" scoped>
 .header {
@@ -26,7 +47,7 @@ export default {};
     text-align: center;
     color: #e4f6ff;
     letter-spacing: 9px;
-    text-shadow: 0 9px 9px  rgba(32, 96, 150, 0.67);
+    text-shadow: 0 9px 9px rgba(32, 96, 150, 0.67);
     position: absolute;
     top: 20px;
     // left: 0;
@@ -34,7 +55,18 @@ export default {};
     margin: 0 auto;
     left: 50%;
     transform: translateX(-50%);
-    
+  }
+  .date-time {
+    position: absolute;
+    top: 7px;
+    right: 21px;
+    z-index: 2;
+    font-size: 18px;
+    font-family: DINAlternate, DINAlternate-Bold;
+    font-weight: 700;
+    text-align: center;
+    color: #64d9f1;
+    letter-spacing: 2px;
   }
 }
 </style>

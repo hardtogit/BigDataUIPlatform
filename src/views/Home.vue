@@ -1,6 +1,5 @@
 <template>
   <Page>
-    <Header></Header>
     <Scoreboard
       prefix="实时刷卡人次"
       suffix="次"
@@ -54,7 +53,6 @@
 <script>
 // @ is an alias to /src
 import Page from "@components/Page.vue";
-import Header from "@components/Header.vue";
 import Panel from "@components/Panel.vue";
 import HotLine from "@/components/home/HotLine.vue";
 import BusStatistics from "@/components/home/BusStatistics.vue";
@@ -63,7 +61,7 @@ import PercentBar from "@/components/home/PercentBar.vue";
 import Table from "@components/scroll-table/Table.vue";
 import Scoreboard from "@/components/home/Scoreboard.vue";
 import SubScoreboard from "@/components/home/SubScoreboard.vue";
-import Dataline from "@components/home/DataLine";
+import Dataline from "@components/home/DataLine.vue";
 
 import { rem } from "@/utils/index";
 import { useCardConfig } from "@hooks/cardConfg";
@@ -101,7 +99,6 @@ export default {
   components: {
     Panel,
     Page,
-    Header,
     AMap,
     HotLine,
     BusStatistics,

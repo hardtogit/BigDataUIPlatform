@@ -11,6 +11,7 @@
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@njleonzhang/postcss-px-to-rem": "^1.0.1",
     "@vueuse/core": "^4.9.0",
+    "animate.css": "^4.1.1",
     "core-js": "^3.6.5",
     "echarts": "^5.1.0",
     "normalize-scss": "^7.0.1",
