@@ -107,6 +107,9 @@ export default {
       console.log("0000", map);
     },
   },
+  mounted(){
+    console.log(this.$echrts)
+  },
   components: {
     Panel,
     Page,
